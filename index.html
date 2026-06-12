@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CYBORG — The future is augmented. Experience the next generation of human-machine evolution with cutting-edge cybernetic technology." />
+  <title>CYBORG — Augmented Evolution</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress-bar" id="scrollProgress"></div>
+
+  <!-- Particle Canvas Background -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- Scan Line Overlay -->
+  <div class="scanlines"></div>
+
+  <!-- Glitch Overlay -->
+  <div class="glitch-overlay" id="glitchOverlay"></div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <span class="logo-bracket">[</span>
+        <span class="logo-text">CYBORG</span>
+        <span class="logo-bracket">]</span>
+        <div class="logo-underline"></div>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link">HOME</a></li>
+        <li><a href="#about" class="nav-link">PROTOCOL</a></li>
+        <li><a href="#features" class="nav-link">AUGMENTS</a></li>
+        <li><a href="#stats" class="nav-link">DATA</a></li>
+        <li><a href="#contact" class="nav-link">SYNC</a></li>
+      </ul>
+      <button class="nav-cta" id="navCta">INITIALIZE</button>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero" id="home">
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="eyebrow-text">GENERATION // AUGMENTED</span>
+        <span class="eyebrow-line"></span>
+      </div>
+      <h1 class="hero-title">
+        <span class="title-line" data-text="THE FUTURE">THE FUTURE</span>
+        <span class="title-line accent" data-text="IS CYBORG">IS CYBORG</span>
+      </h1>
+      <p class="hero-subtitle">
+        Transcend biological limits. Merge silicon with synapse.<br />
+        <span class="typing-text" id="typingText"></span>
+      </p>
+      <div class="hero-cta-group">
+        <button class="btn-primary" id="heroPrimary">
+          <span class="btn-icon">⬡</span>
+          ACTIVATE PROTOCOL
+          <span class="btn-glow"></span>
+        </button>
+        <button class="btn-secondary" id="heroSecondary">
+          <span>LEARN MORE</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="stat-num" data-target="98.7">0</span><span class="stat-unit">%</span>
+          <span class="stat-label">UPTIME</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="hero-stat">
+          <span class="stat-num" data-target="4.2">0</span><span class="stat-unit">ms</span>
+          <span class="stat-label">LATENCY</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="hero-stat">
+          <span class="stat-num" data-target="512">0</span><span class="stat-unit">TB</span>
+          <span class="stat-label">NEURAL STORAGE</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="cyborg-ring ring-1"></div>
+      <div class="cyborg-ring ring-2"></div>
+      <div class="cyborg-ring ring-3"></div>
+      <div class="scene3d" id="scene3d">
+        <div class="cube3d">
+          <div class="cube-face front"><div class="face-inner"></div></div>
+          <div class="cube-face back"><div class="face-inner"></div></div>
+          <div class="cube-face right"><div class="face-inner"></div></div>
+          <div class="cube-face left"><div class="face-inner"></div></div>
+          <div class="cube-face top"><div class="face-inner"></div></div>
+          <div class="cube-face bottom"><div class="face-inner"></div></div>
+        </div>
+      </div>
+      <div class="data-stream" id="dataStream"></div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>SCROLL</span>
+    </div>
+  </section>
+
+  <!-- ===== TICKER STRIP ===== -->
+  <div class="ticker-strip">
+    <div class="ticker-track" id="tickerTrack">
+      <span>NEURAL LINK ACTIVE</span><span class="dot">◆</span>
+      <span>SYNAPTIC BANDWIDTH: 12.4 TB/S</span><span class="dot">◆</span>
+      <span>AUGMENTATION PROTOCOL V7.3</span><span class="dot">◆</span>
+      <span>QUANTUM CORE: ONLINE</span><span class="dot">◆</span>
+      <span>BIOMETRIC SYNC: 99.2%</span><span class="dot">◆</span>
+      <span>THREAT MATRIX: CLEAR</span><span class="dot">◆</span>
+      <span>NEURAL LINK ACTIVE</span><span class="dot">◆</span>
+      <span>SYNAPTIC BANDWIDTH: 12.4 TB/S</span><span class="dot">◆</span>
+      <span>AUGMENTATION PROTOCOL V7.3</span><span class="dot">◆</span>
+      <span>QUANTUM CORE: ONLINE</span><span class="dot">◆</span>
+    </div>
+  </div>
+
+  <!-- ===== ABOUT / PROTOCOL SECTION ===== -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// PROTOCOL 01</span>
+        <h2 class="section-title">WHAT IS <span class="accent-text">CYBORG</span>?</h2>
+        <p class="section-subtitle">A seamless fusion of human consciousness and machine precision.</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-visual">
+          <div class="circuit-board">
+            <div class="circuit-node node-1"></div>
+            <div class="circuit-node node-2"></div>
+            <div class="circuit-node node-3"></div>
+            <div class="circuit-node node-4"></div>
+            <svg class="circuit-lines" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M50 150 H 150 V 80 H 250 V 150 H 350" stroke="var(--cyan)" stroke-width="1.5" stroke-dasharray="6 3" class="circuit-path"/>
+              <path d="M150 80 V 220 H 250 V 80" stroke="var(--cyan)" stroke-width="1" stroke-dasharray="4 4" opacity="0.5" class="circuit-path-2"/>
+              <path d="M50 220 H 100 V 150" stroke="var(--cyan)" stroke-width="1" stroke-dasharray="4 4" opacity="0.4" class="circuit-path-3"/>
+              <circle cx="50" cy="150" r="5" fill="var(--cyan)"/>
+              <circle cx="150" cy="80" r="5" fill="var(--cyan)"/>
+              <circle cx="250" cy="150" r="5" fill="var(--cyan)"/>
+              <circle cx="350" cy="150" r="5" fill="var(--magenta)"/>
+              <circle cx="150" cy="220" r="5" fill="var(--magenta)"/>
+              <circle cx="250" cy="220" r="3" fill="var(--cyan)" opacity="0.6"/>
+            </svg>
+            <div class="holo-badge">
+              <span class="badge-label">NEURAL CORE</span>
+              <span class="badge-value">ACTIVE</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-content">
+          <div class="about-block">
+            <div class="block-icon">⬡</div>
+            <div>
+              <h3>NEURAL INTEGRATION</h3>
+              <p>Direct brain-computer interfaces that translate thought into action with zero latency. Our proprietary NeuroSync technology bridges the gap between human intent and machine execution.</p>
+            </div>
+          </div>
+          <div class="about-block">
+            <div class="block-icon">◈</div>
+            <div>
+              <h3>BIOMECHANICAL FUSION</h3>
+              <p>Titanium-alloy exoskeletal frameworks woven into organic tissue with nano-scale precision. Augmented limbs that feel, respond, and perform beyond any biological limitation.</p>
+            </div>
+          </div>
+          <div class="about-block">
+            <div class="block-icon">⟁</div>
+            <div>
+              <h3>QUANTUM PROCESSING</h3>
+              <p>Embedded quantum co-processors deliver 512 teraflops of raw computing power to augment decision-making, perception, and real-time threat analysis.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURES / AUGMENTS SECTION ===== -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// PROTOCOL 02</span>
+        <h2 class="section-title">AUGMENTATION <span class="accent-text">SUITE</span></h2>
+        <p class="section-subtitle">Choose your enhancements. Define your evolution.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card" data-delay="0">
+          <div class="card-glow"></div>
+          <div class="card-header">
+            <div class="card-icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="24" cy="24" r="10" stroke="currentColor" stroke-width="2"/>
+                <path d="M24 4 L24 14 M24 34 L24 44 M4 24 L14 24 M34 24 L44 24" stroke="currentColor" stroke-width="2"/>
+                <circle cx="24" cy="24" r="4" fill="currentColor"/>
+              </svg>
+            </div>
+            <span class="card-tag">OCULAR</span>
+          </div>
+          <h3>RETINAL DISPLAY</h3>
+          <p>AR overlays projected directly onto the retina. Real-time data, facial recognition, and tactical analysis streamed at 16K resolution.</p>
+          <div class="card-specs">
+            <span>16K @ 240fps</span>
+            <span>IR + UV Vision</span>
+            <span>120° FOV</span>
+          </div>
+          <div class="card-progress">
+            <div class="progress-bar" data-width="94"></div>
+          </div>
+        </div>
+
+        <div class="feature-card featured" data-delay="100">
+          <div class="card-glow"></div>
+          <div class="featured-badge">CORE</div>
+          <div class="card-header">
+            <div class="card-icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="24,4 44,14 44,34 24,44 4,34 4,14" stroke="currentColor" stroke-width="2"/>
+                <polygon points="24,14 34,19 34,29 24,34 14,29 14,19" fill="currentColor" opacity="0.3"/>
+                <circle cx="24" cy="24" r="4" fill="currentColor"/>
+              </svg>
+            </div>
+            <span class="card-tag">NEURAL</span>
+          </div>
+          <h3>NEURAL LINK X</h3>
+          <p>Direct cortex-to-cloud connectivity. Upload memories, download skills, and interface with any networked system using pure thought.</p>
+          <div class="card-specs">
+            <span>12.4 TB/s</span>
+            <span>Quantum Encrypted</span>
+            <span>Zero Latency</span>
+          </div>
+          <div class="card-progress">
+            <div class="progress-bar" data-width="99"></div>
+          </div>
+        </div>
+
+        <div class="feature-card" data-delay="200">
+          <div class="card-glow"></div>
+          <div class="card-header">
+            <div class="card-icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="8" y="20" width="32" height="20" rx="4" stroke="currentColor" stroke-width="2"/>
+                <path d="M16 20 V12 Q16 4 24 4 Q32 4 32 12 V20" stroke="currentColor" stroke-width="2"/>
+                <circle cx="24" cy="30" r="5" fill="currentColor" opacity="0.5"/>
+                <path d="M24 25 V20" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <span class="card-tag">EXOSKELETON</span>
+          </div>
+          <h3>POWER FRAME</h3>
+          <p>Carbon-nanotube musculature delivering 40x baseline human strength. Adaptive shock absorption and self-repairing nano-fibers.</p>
+          <div class="card-specs">
+            <span>40x Strength</span>
+            <span>Self-Repair</span>
+            <span>Titanium-V</span>
+          </div>
+          <div class="card-progress">
+            <div class="progress-bar" data-width="87"></div>
+          </div>
+        </div>
+
+        <div class="feature-card" data-delay="300">
+          <div class="card-glow"></div>
+          <div class="card-header">
+            <div class="card-icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 24 Q8 8 24 8 Q40 8 40 24" stroke="currentColor" stroke-width="2"/>
+                <path d="M14 24 Q14 14 24 14 Q34 14 34 24" stroke="currentColor" stroke-width="2" opacity="0.5"/>
+                <path d="M4 28 H44 M8 32 H40 M12 36 H36" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+                <circle cx="24" cy="24" r="4" fill="currentColor"/>
+              </svg>
+            </div>
+            <span class="card-tag">SIGNAL</span>
+          </div>
+          <h3>QUANTUM COMMS</h3>
+          <p>Entanglement-based communication impossible to intercept or jam. Instantaneous data transfer across any distance, even in blackout zones.</p>
+          <div class="card-specs">
+            <span>Unbreakable</span>
+            <span>Instant</span>
+            <span>Global Range</span>
+          </div>
+          <div class="card-progress">
+            <div class="progress-bar" data-width="91"></div>
+          </div>
+        </div>
+
+        <div class="feature-card" data-delay="400">
+          <div class="card-glow"></div>
+          <div class="card-header">
+            <div class="card-icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24 6 L36 12 V24 C36 32 30 38 24 42 C18 38 12 32 12 24 V12 Z" stroke="currentColor" stroke-width="2"/>
+                <path d="M19 24 L23 28 L29 20" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <span class="card-tag">DEFENSE</span>
+          </div>
+          <h3>SHIELD MATRIX</h3>
+          <p>Electromagnetic field generation creates a personal defensive perimeter. Intercepts projectiles, EMP attacks, and biological threats.</p>
+          <div class="card-specs">
+            <span>EM Shield</span>
+            <span>Threat AI</span>
+            <span>360° Coverage</span>
+          </div>
+          <div class="card-progress">
+            <div class="progress-bar" data-width="82"></div>
+          </div>
+        </div>
+
+        <div class="feature-card" data-delay="500">
+          <div class="card-glow"></div>
+          <div class="card-header">
+            <div class="card-icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="2" stroke-dasharray="5 3"/>
+                <path d="M24 12 V18 M24 30 V36 M12 24 H18 M30 24 H36" stroke="currentColor" stroke-width="2"/>
+                <circle cx="24" cy="24" r="5" fill="currentColor" opacity="0.4"/>
+              </svg>
+            </div>
+            <span class="card-tag">BIOCORE</span>
+          </div>
+          <h3>FUSION REACTOR</h3>
+          <p>Miniaturized cold fusion energy core providing 50 years of maintenance-free operation. Powers all augmentations simultaneously at peak efficiency.</p>
+          <div class="card-specs">
+            <span>50yr Power</span>
+            <span>Cold Fusion</span>
+            <span>Zero Waste</span>
+          </div>
+          <div class="card-progress">
+            <div class="progress-bar" data-width="96"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STATS SECTION ===== -->
+  <section class="stats-section" id="stats">
+    <div class="stats-bg"></div>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// PROTOCOL 03</span>
+        <h2 class="section-title">SYSTEM <span class="accent-text">METRICS</span></h2>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">⬡</div>
+          <div class="stat-counter" data-target="47293">0</div>
+          <div class="stat-suffix">+</div>
+          <div class="stat-desc">UNITS DEPLOYED</div>
+          <div class="stat-bar"><div class="stat-bar-fill" data-width="78"></div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">◈</div>
+          <div class="stat-counter" data-target="99">0</div>
+          <div class="stat-suffix">%</div>
+          <div class="stat-desc">MISSION SUCCESS</div>
+          <div class="stat-bar"><div class="stat-bar-fill" data-width="99"></div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">⟁</div>
+          <div class="stat-counter" data-target="12">0</div>
+          <div class="stat-suffix">PB</div>
+          <div class="stat-desc">NEURAL DATA PROCESSED</div>
+          <div class="stat-bar"><div class="stat-bar-fill" data-width="60"></div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">◻</div>
+          <div class="stat-counter" data-target="360">0</div>
+          <div class="stat-suffix">°</div>
+          <div class="stat-desc">AWARENESS COVERAGE</div>
+          <div class="stat-bar"><div class="stat-bar-fill" data-width="100"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TIMELINE ===== -->
+  <section class="timeline-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// PROTOCOL 04</span>
+        <h2 class="section-title">EVOLUTION <span class="accent-text">TIMELINE</span></h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-line"></div>
+        <div class="timeline-item left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="timeline-year">2024</span>
+            <h3>PROTOTYPE PHASE</h3>
+            <p>First neural interface implant successfully integrated with human cortex. Latency breakthrough achieved at 0.3ms.</p>
+          </div>
+        </div>
+        <div class="timeline-item right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="timeline-year">2025</span>
+            <h3>BETA DEPLOYMENT</h3>
+            <p>12,000 early adopters receive Cyborg augmentations. Combat and medical applications proven in field trials.</p>
+          </div>
+        </div>
+        <div class="timeline-item left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="timeline-year">2026</span>
+            <h3>MASS INTEGRATION</h3>
+            <p>Production scale reached. 47,000+ units active worldwide. Quantum core processors enter second generation.</p>
+          </div>
+        </div>
+        <div class="timeline-item right active">
+          <div class="timeline-dot pulse"></div>
+          <div class="timeline-card">
+            <span class="timeline-year">2027</span>
+            <h3>SINGULARITY</h3>
+            <p>Full neural mesh deployment. The line between human and machine dissolves permanently. Evolution complete.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA SECTION ===== -->
+  <section class="cta-section" id="contact">
+    <div class="cta-bg-grid"></div>
+    <div class="container">
+      <div class="cta-content">
+        <span class="section-tag">// INITIATE SEQUENCE</span>
+        <h2 class="cta-title">READY TO <span class="accent-text">TRANSCEND</span>?</h2>
+        <p class="cta-subtitle">Join 47,000+ augmented individuals. Begin your transformation today.</p>
+        <div class="cta-form" id="ctaForm">
+          <div class="form-group">
+            <input type="text" id="nameInput" placeholder="DESIGNATION" class="cyber-input" autocomplete="off" />
+            <div class="input-line"></div>
+          </div>
+          <div class="form-group">
+            <input type="email" id="emailInput" placeholder="NEURAL ADDRESS" class="cyber-input" autocomplete="off" />
+            <div class="input-line"></div>
+          </div>
+          <button class="btn-primary btn-submit" id="submitBtn">
+            <span>INITIATE PROTOCOL</span>
+            <span class="btn-glow"></span>
+          </button>
+        </div>
+        <p class="cta-note">* Augmentation consultation required. All procedures comply with UN Cybernetic Ethics Charter.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-grid-overlay"></div>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="nav-logo" style="margin-bottom:1rem;">
+            <span class="logo-bracket">[</span>
+            <span class="logo-text">CYBORG</span>
+            <span class="logo-bracket">]</span>
+          </div>
+          <p>Redefining human potential through precision augmentation technology since 2024.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+            <a href="#" class="social-link" aria-label="GitHub">⌥</a>
+            <a href="#" class="social-link" aria-label="Discord">⊕</a>
+          </div>
+        </div>
+        <div class="footer-links-group">
+          <h4>SYSTEMS</h4>
+          <ul>
+            <li><a href="#features">Neural Link</a></li>
+            <li><a href="#features">Power Frame</a></li>
+            <li><a href="#features">Retinal Display</a></li>
+            <li><a href="#features">Shield Matrix</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-group">
+          <h4>COMPANY</h4>
+          <ul>
+            <li><a href="#about">Protocol</a></li>
+            <li><a href="#stats">Metrics</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#">Ethics Board</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-group">
+          <h4>LEGAL</h4>
+          <ul>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">UN Charter</a></li>
+            <li><a href="#">Compliance</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="share-tech">© 2026 CYBORG SYSTEMS INC. — ALL RIGHTS RESERVED</span>
+        <span class="share-tech footer-status">
+          <span class="status-dot"></span> ALL SYSTEMS NOMINAL
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">
+    <span class="toast-icon">⬡</span>
+    <span id="toastMsg">Protocol initiated. Stand by.</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
