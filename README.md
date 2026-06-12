@@ -11,7 +11,7 @@
 
 ## 🌐 Overview
 
-This project is a visually striking, premium responsive landing page centered around a "Cyborg/Cybernetic" theme. It pushes the boundaries of modern UI/UX by heavily relying on interactive CSS/JS effects to create an immersive, futuristic environment. 
+This project is a visually striking, premium responsive landing page centered around a "Cyborg/Cybernetic" theme created for Tecgfest Web Development Challenge. It pushes the boundaries of modern UI/UX by heavily relying on interactive CSS/JS effects to create an immersive, futuristic environment. 
 
 ## ✨ Key Features & Augmentations
 
